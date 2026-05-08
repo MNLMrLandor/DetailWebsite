@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C&L Pro Detailing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="banner">
+        <div class="logo">C&L Pro Detailing</div>
+
+        <div class="nav">
+            <a href="#">Services</a>
+            <a href="#">Reviews</a>
+            <a href="#">Gallery</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <div id="slideshow" class="fade-slideshow">
+        <img class="fade-img active" 
+             src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80" 
+             alt="Slide 1">
+
+        <img class="fade-img" 
+             src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=80" 
+             alt="Slide 2">
+
+        <img class="fade-img" 
+             src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&q=80" 
+             alt="Slide 3">
+        
+    </div>
+    <h1 id ="main-title">Our Standard</h1>
+    <fieldset id = "ourStandard" style = "border-width:0px; width:60%; margin: auto;">
+        <p>At C&L Pro Detailing, we believe in doing things the right way.
+            We treat every vehicle as if it were our own, ensuring that no detail is missed, taking the time to ensure a perfect finish.
+            If a job doesn’t meet our standards, we don’t stop until it does and that's what sets us apart.</p>
+    </fieldset>
+    <button id="book-now-button" style="size: 20px;">Book Now</button>
+    <script>
+        let index = 0;
+        const images = document.querySelectorAll(".fade-img");
+        let interval;
+
+        function changeImage() {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+        }
+
+        interval = setInterval(changeImage, 3000);
+
+    </script>
+
+</body>
+</html>
