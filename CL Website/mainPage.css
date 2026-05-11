@@ -82,3 +82,43 @@ h1 {
     padding: 20px;
     box-sizing: border-box;
 }
+/* Dropdown button (closed state) */
+#packages-button {
+    background: black;          /* background color */
+    color: white;               /* text color */
+    border: 2px solid gold;     /* border */
+    font-size: 18px;            /* text size */
+    padding: 10px 14px;         /* size of the box */
+    border-radius: 6px;         /* rounded corners */
+    width: 250px;               /* width of dropdown */
+}
+
+/* Hover effect */
+#packages-button:hover {
+    background: #222;
+    border-color: #e6c200;      /* brighter gold */
+}
+/* The dropdown menu container */
+.ui-selectmenu-menu .ui-menu {
+    background: black;
+    border: 2px solid gold;
+    border-radius: 6px;
+    width: 250px;               /* match button width */
+}
+
+/* Menu items */
+.ui-selectmenu-menu .ui-menu-item-wrapper {
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* Hovered item */
+.ui-selectmenu-menu .ui-menu-item-wrapper.ui-state-active {
+    background: gold;
+    color: black;
+}
+#packages-button .ui-selectmenu-text {
+    padding: 8px 10px;
+}
+
