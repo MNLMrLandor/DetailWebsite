@@ -47,3 +47,21 @@
 body {
     background-color: black;
 }
+
+/* Global button styling */
+button {
+    background-color: black;
+    color: white;
+    border: 2px solid gold;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #222;
+    border-color: #e6c200;
+}
