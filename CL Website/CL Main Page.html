@@ -51,7 +51,7 @@
             If a job doesn’t meet our standards, we don’t stop until it does and that's what sets us apart.</p>
     </fieldset>
     <br>
-    <button id="book-now-button" style="size: 40px;">Book Now</button>
+    <button id="book-now-button">Book Now</button>
     
     <div id="reviews-container">
         <fieldset id="Review1" style="border-width:2px; width: 32%; text-align: left;border-color: gold;border-radius: 10px; padding: 15px;">
@@ -72,7 +72,7 @@
     </div>
     
     <dialog id="bookingPopup" style="width: 500px; height: 550px;">
-        <button onclick="myPopup.close()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; cursor: pointer; color: white;">✕</button>
+        <button onclick="this.closest('dialog').close()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; cursor: pointer; color: white;">✕</button>
         
         <div id="formContainer">
             <h2>Book Below!</h2>
@@ -98,20 +98,20 @@
                 <input type="tel" id="Phone" name="Phone" placeholder="(123) 456-7890" pattern="[0-9\-\(\) ]+" title="Please enter a valid phone number (e.g., (123) 456-7890)" required>
 
                 <br>
-                <label for="Car Model">Car Model:</label>
-                <input type="text" id="Car Model" name="Car Model" required>
+                <label for="carModel">Car Model:</label>
+                <input type="text" id="carModel" name="Car Model" required>
 
                 <br>
-                <label style = "border-width: 0px;" for="Date">Preferred Date:</label>
-                <input type="date" id="Date" name="Date" required 
-
+                <label for="Date">Preferred Date:</label>
+                <input type="date" id="Date" name="Date" required>
+                <br>
                 <br>
                 <label for="Time">Preferred Time:</label>
                 <input type="time" id="Time" name="Time" required>
                 <br>
                 <br>
                 <button type="submit">Submit</button>
-                <button type="button" onclick="myPopup.close()">Close</button>
+                <button type="button" onclick="this.closest('dialog').close()">Close</button>
             </form>
         </div>
 
@@ -121,6 +121,15 @@
         </div>
     </dialog>
 
+        <div id="footer">
+        <div class="logo">© 2026 C&L AUTO DETAILING. ALL RIGHTS RESERVED.</div>
+
+        <div class="footNav">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Google Business</a>
+        </div>
+    </div>
     <script>
         let index = 0;
         const images = document.querySelectorAll(".fade-img");
@@ -141,18 +150,18 @@
         const bookNowButton = document.getElementById("book-now-button");
 
         $(function() {
-            // Initialize jQuery UI button
+            
             $("#book-now-button").button({
                 icons: {
                     primary: "ui-icon-calendar"
                 }
             });
             
-            // Attach click handler inside jQuery ready function
+            
             $("#book-now-button").on("click", function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                // Reset form when opening popup
+                // Reset form 
                 document.getElementById("formContainer").style.display = "block";
                 document.getElementById("successContainer").style.display = "none";
                 form.reset();
@@ -160,7 +169,7 @@
             });
         });
 
-        // Phone number validation
+        // Phone number verify
         phoneInput.addEventListener("blur", function() {
             validatePhoneNumber();
         });
@@ -182,7 +191,7 @@
             })
             .then(response => response.ok ? Promise.resolve() : Promise.reject())
             .then(() => {
-                // Hide form and show success message
+                // show success message
                 document.getElementById("formContainer").style.display = "none";
                 document.getElementById("successContainer").style.display = "block";
             })

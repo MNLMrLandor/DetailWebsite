@@ -65,3 +65,19 @@ button:hover {
     background-color: #222;
     border-color: #e6c200;
 }
+#footer {
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    height: 70vh;
+}
+#footer a {
+    color: gold;
+    text-decoration: underline;
+    margin-left: 20px;
+    font-size: 18px;
+}

@@ -116,7 +116,7 @@ h1 {
 }
 
 #Package {
-    width: 150;
+    width: 150px;
     height: 28px;
     font-size: 13px;
     background: white;
@@ -138,12 +138,12 @@ h1 {
     font-size: 14px;
     font-family: Arial, sans-serif;
     box-sizing: border-box;
+    outline: none;
 }
 
-#bookingPopup input[type="date"],
-#bookingPopup input[type="time"] {
-    outline: none;
-    border: none;
+#bookingPopup input[type="date"]:focus,
+#bookingPopup input[type="time"]:focus {
+    border-color: gold;
     box-shadow: 0 0 5px rgba(230, 198, 0, 0.8);
 }
 
