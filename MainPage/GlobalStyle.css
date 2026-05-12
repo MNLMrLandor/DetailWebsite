@@ -81,3 +81,21 @@ button:hover {
     margin-left: 20px;
     font-size: 18px;
 }
+#paragraph {
+    color: white;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    border-width: 2px;
+    border-color: white;
+}
+#main-title {
+    color: white;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 20px;
+    border-width: 2px;
+    border-color: white;
+}

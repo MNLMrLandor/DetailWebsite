@@ -4,15 +4,7 @@ h1 {
     text-align: center;
     margin-top: 20px;
 }
-#main-title {
-    color: white;
-    font-family: Copperplate, 'Courier New', fantasy, serif;
-    font-size: 70px;
-    text-align: center;
-    margin-top: 20px;
-    border-width: 2px;
-    border-color: white;
-}
+
 #paragraph {
     color: white;
     font-family: Copperplate, 'Courier New', fantasy, serif;

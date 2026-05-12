@@ -2,53 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C&L Pro Detailing</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C&L: Why Us</title>
+    <link rel="stylesheet" href="H:\programs\MainPage\GlobalStyle.css">
 </head>
-
 <body>
-
     <div id="banner">
         <div class="logo">C&L Pro Detailing</div>
 
         <div class="nav">
             <a href="#">Services</a>
-            <a href="#">Reviews</a>
+            <a href="#">Why us</a>
             <a href="#">Gallery</a>
             <a href="#">Contact</a>
         </div>
     </div>
 
-    <div id="slideshow" class="fade-slideshow">
-        <img class="fade-img active" 
-             src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80" 
-             alt="Slide 1">
+    <h1 id="main-title">Why Choose Us?</h1>
 
-        <img class="fade-img" 
-             src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1600&q=80" 
-             alt="Slide 2">
-
-        <img class="fade-img" 
-             src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&q=80" 
-             alt="Slide 3">
-        
-    </div>
-    <h1 id ="main-title">Our Standard</h1>
-    <script>
-        let index = 0;
-        const images = document.querySelectorAll(".fade-img");
-        let interval;
-
-        function changeImage() {
-            images[index].classList.remove("active");
-            index = (index + 1) % images.length;
-            images[index].classList.add("active");
-        }
-
-        interval = setInterval(changeImage, 3000);
-
-    </script>
-
+    <p id="paragraph">
+        At C&L Pro Detailing, we are passionate about providing the highest quality detailing services to our customers. 
+        We take pride in our attention to detail and commitment to excellence, ensuring that every vehicle we work on receives the care and respect it deserves. 
+        Our team of skilled professionals uses only the best products and techniques to achieve outstanding results, leaving your car looking its absolute best. 
+        When you choose C&L Pro Detailing, you're not just getting a service – you're investing in a superior experience that will exceed your expectations.
+    </p>   
+    
 </body>
 </html>
