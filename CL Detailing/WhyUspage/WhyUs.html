@@ -4,28 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C&L: Why Us</title>
-    <link rel="stylesheet" href="GlobalStyle.css">
+    <link rel="icon" type="image/x-icon" href="../Global Styles/Cl Logo.png">
+    <link rel="stylesheet" href="WhyUs.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="../Global Styles/GlobalStyle.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.js"></script>
 </head>
+
 <body>
     <div id="banner">
-        <div class="logo">C&L Pro Detailing</div>
+        <a class="banner-logo" href="../MainPage/CL Main Page.html" aria-label="Go to main page">
+            <img src="../Global Styles/CL Logo.png" alt="C&L Pro Detailing logo">
+            <span>C&L Pro Detailing</span>
+        </a>
 
         <div class="nav">
-            <a href="#">Services</a>
-            <a href="#">Why us</a>
-            <a href="#">Gallery</a>
-            <a href="#">Contact</a>
+            <a href="../ServicesPage/Services.html">Services</a>
+            <a href="../WhyUspage/WhyUs.html">Why us</a>
+            <a href="../GalleryPage/GalleryPage.html">Gallery</a>
+            <a href="../ContactPage/ContactPage.html">Contact</a>
         </div>
     </div>
 
     <h1 id="main-title">Why Choose Us?</h1>
 
-    <p id="paragraph">
-        At C&L Pro Detailing, we are passionate about providing the highest quality detailing services to our customers. 
-        We take pride in our attention to detail and commitment to excellence, ensuring that every vehicle we work on receives the care and respect it deserves. 
-        Our team of skilled professionals uses only the best products and techniques to achieve outstanding results, leaving your car looking its absolute best. 
-        When you choose C&L Pro Detailing, you're not just getting a service – you're investing in a superior experience that will exceed your expectations.
-    </p>   
-    
+    <div id="accordion">
+        <h3>Deeper Cleaning</h3>
+        <div>
+            <p>Automatic car washes are fast and easy to use but they damage your paint over time.
+                We get a deeper clean of both inside and outside of your vehicle, using professional-grade products and techniques that protect your car’s finish while making it look like new.
+            </p>
+        </div>
+
+        <h3>Fully Mobile</h3>
+        <div>
+            <p>With access to just your hose and electricity we can come to you, no matter where you are.
+                We bring our expert detailing services right to your driveway, literally saving you the time and hassle of driving to a shop.
+            </p>
+        </div>
+
+        <h3>Affordable and 100% Satisfaction Guaranteed</h3>
+        <div>
+            <p>We offer affordable prices and guarantee 100% customer satisfaction.
+                Whether you're looking for a quick wash or a full detail, we have packages to fit your needs and budget. We stand behind our work and will do whatever it takes to make sure you’re happy with the results.
+            </p>
+        </div>
+    </div>
+
+    <fieldset id="bookingFooter">
+        <h1>Ready to Experience the Difference?</h1>
+        <p>Book your session today and let us show you the very thing you've been missing.</p>
+        <button id="book-now-button">Book Now</button>
+    </fieldset>
+
+    <dialog id="bookingPopup" style="width: 500px; height: 550px;">
+        <button onclick="this.closest('dialog').close()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; cursor: pointer; color: white;">✕</button>
+
+        <div id="formContainer">
+            <h2 id="debugFillTrigger" style="cursor: pointer;">Book Below!</h2>
+
+            <form id="bookingForm" action="https://api.sheetmonkey.io/form/fM6HaKnB7tN7oTTmWSCnf6" method="post">
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="Name" required>
+
+                <br>
+                <label for="Package">Package:</label>
+                <select class="ui-selectmenu-button" name="Package" id="Package" style="border-width: 0px;" required>
+                    <option value="">--Select your package--</option>
+                    <option value="Basic">Basic</option>
+                    <option value="Elite">Elite</option>
+                    <option value="Premium">Premium</option>
+                </select>
+
+                <br>
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" name="Email" required>
+
+                <br>
+                <label for="Phone">Phone:</label>
+                <input type="tel" id="Phone" name="Phone" placeholder="(123) 456-7890" pattern="[0-9\-\(\) ]+" title="Please enter a valid phone number (e.g., (123) 456-7890)" required>
+
+                <br>
+                <label for="carModel">Car Model:</label>
+                <input type="text" id="carModel" name="Car Model" required>
+
+                <br>
+                <label for="Date">Preferred Date:</label>
+                <input type="date" id="Date" name="Date" required>
+                <br>
+                <br>
+                <label for="Time">Preferred Time:</label>
+                <input type="time" id="Time" name="Time" required>
+                <br>
+                <br>
+
+                <button type="submit">Submit</button>
+                <button type="button" onclick="this.closest('dialog').close()">Close</button>
+            </form>
+        </div>
+
+        <div id="successContainer" style="display: none; text-align: center; padding: 40px 20px;">
+            <h2 style="color: gold;">Booking Submitted!</h2>
+            <p id="priceMessage" style="font-size: 18px; margin-top: 10px; color: white;"></p>
+            <p style="font-size: 18px; margin-top: 20px;">Thank you for booking with C&L Pro Detailing. We'll contact you soon!</p>
+        </div>
+    </dialog>
+
+    <div id="footer">
+        <div class="logo">© 2026 C&L AUTO DETAILING. ALL RIGHTS RESERVED.</div>
+        <div class="footNav">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Google Business</a>
+        </div>
+    </div>
+
+    <script>
+        let index = 0;
+
+        const form = document.getElementById("bookingForm");
+        const phoneInput = document.getElementById("Phone");
+        const packageSelect = document.getElementById("Package");
+        const carModelInput = document.getElementById("carModel");
+        const dateInput = document.getElementById("Date");
+        const timeInput = document.getElementById("Time");
+        const nameInput = document.getElementById("Name");
+        const emailInput = document.getElementById("Email");
+        const myPopup = document.getElementById("bookingPopup");
+        const bookNowButton = document.getElementById("book-now-button");
+
+        function fillDebugFormData() {
+            nameInput.value = "Test User";
+            packageSelect.value = "Premium";
+            emailInput.value = "test@example.com";
+            phoneInput.value = "(555) 123-4567";
+            carModelInput.value = "2020 Toyota Camry";
+            dateInput.value = new Date().toISOString().split("T")[0];
+            timeInput.value = "10:00";
+        }
+
+
+        function validatePhoneNumber() {
+            const phone = phoneInput.value;
+            const digitsOnly = phone.replace(/\D/g, "");
+
+            if (digitsOnly.length < 10) {
+                phoneInput.style.borderColor = "red";
+                phoneInput.style.backgroundColor = "#ffcccc";
+                return false;
+            } else {
+                phoneInput.style.borderColor = "";
+                phoneInput.style.backgroundColor = "";
+                return true;
+            }
+        }
+
+        $(function () {
+            $("#accordion").accordion({
+                collapsible: true,
+                active: false
+            });
+
+            $("#book-now-button").button({
+                icons: { primary: "ui-icon-calendar" }
+            });
+
+            $("#book-now-button").on("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                document.getElementById("formContainer").style.display = "block";
+                document.getElementById("successContainer").style.display = "none";
+
+                form.reset();
+                myPopup.showModal();
+            });
+
+            $("#debugFillTrigger").on("click", function () {
+                fillDebugFormData();
+            });
+        });
+
+        // Phone number verify
+        phoneInput.addEventListener("blur", function () {
+            validatePhoneNumber();
+        });
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            if (!validatePhoneNumber()) {
+                alert("Please enter a valid phone number with at least 10 digits.");
+                return;
+            }
+
+            // Calculate and display price using switch
+            const selectedPackage = packageSelect.value;
+            let price;
+
+            switch (selectedPackage) {
+                case "Basic":
+                    price = "$100";
+                    break;
+                case "Elite":
+                    price = "$180";
+                    break;
+                case "Premium":
+                    price = "$250";
+                    break;
+                default:
+                    price = "";
+            }
+
+            document.getElementById("priceMessage").textContent = price
+                ? `Your selected package price is: ${price}`
+                : "";
+
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: "POST",
+                body: formData
+            })
+                .then((response) => (response.ok ? Promise.resolve() : Promise.reject()))
+                .then(() => {
+                    document.getElementById("formContainer").style.display = "none";
+                    document.getElementById("successContainer").style.display = "block";
+                })
+                .catch(() => {
+                    alert("Error submitting booking. Please try again.");
+                });
+        });
+    </script>
 </body>
 </html>
