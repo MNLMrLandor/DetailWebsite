@@ -13,6 +13,9 @@
     justify-content: space-between; /* pushes left + right apart */
     align-items: center;            /* centers vertically */
     padding: 0 20px;                /* adds space on left/right */
+
+    /* White line separator */
+    border-bottom: 2px solid white;
 }
 
 .nav a {
@@ -80,4 +83,117 @@ button:hover {
     text-decoration: underline;
     margin-left: 20px;
     font-size: 18px;
+}
+p{
+    color: white;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    border-width: 2px;
+    border-color: white;
+}
+#main-title {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70px;
+    text-align: center;
+    margin-top: 20px;
+    border-width: 2px;
+    border-color: white;
+}
+#bookingPopup {
+    background: #111;
+    border: 2px solid gold;
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+}
+
+/* Backdrop dimming */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Form styling */
+#bookingForm label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+#bookingForm input,
+#bookingForm select {
+    width: 90%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* Buttons */
+#bookingForm button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    background: gold;
+    color: black;
+    font-weight: bold;
+}
+
+#bookingForm button:hover {
+    background: #e6c200;
+}
+
+/* Success message */
+#successContainer h2 {
+    color: gold;
+}
+
+#successContainer p {
+    color: white;
+}
+#book-now-button {
+    display: block;
+    align-items: center;
+    margin-top: 30px;
+    color: white;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 40px;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid gold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+#book-now-button.ui-button {
+    background: rgb(236, 207, 207);
+    border: 0px solid gold;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-size: 40px;
+}
+
+#book-now-button.ui-button:hover {
+    background: #222;
+    border-color: #e6c200;
+}
+
+#book-now-button.ui-button.ui-state-hover {
+    background: #222;
+    border-color: #e6c200;
+}
+
+/* Make calendar icon bigger */
+#book-now-button .ui-icon {
+    width: 45px;
+    height: 45px;
+    background-size: white;
+    margin-right: 8px;
+    color: white;
 }
