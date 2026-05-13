@@ -23,10 +23,18 @@
     text-decoration: none;
     margin-left: 20px;
     font-size: 20px;
+    transition: all 0.3s ease;
 }
 .nav a:hover {
     text-decoration: underline;
-    font-size: 22px;
+    font-size: 25px;
+    transform: translateY(-4px);
+    color: gold;
+    text-shadow:
+        0 0 5px gold,
+        0 0 10px gold,
+        0 0 20px gold,
+        0 0 40px rgba(255, 215, 0, 0.6);
 }
 
 /* ---------- Banner clickable logo (top-left) ---------- */
