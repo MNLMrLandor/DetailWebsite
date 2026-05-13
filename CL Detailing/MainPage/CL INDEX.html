@@ -76,7 +76,7 @@ Detailing". Here is a summary of what the code is doing: -->
 
                 <br>
                 <label for="Package">Package:</label>
-                <select class="ui-selectmenu-button" name="Package" id="Package" style="border-width: 0px;" required>
+                <select class="ui-selectmenu-button" name="Package" id="Package" style="border-width: 0px; width: 100%; height: auto;" required>
                     <option value="">--Select your package--</option>
                     <option value="Basic">Basic</option>
                     <option value="Elite">Elite</option>
@@ -104,8 +104,8 @@ Detailing". Here is a summary of what the code is doing: -->
                 <input type="time" id="Time" name="Time" required>
                 <br>
                 <br>
-                <button type="submit">Submit</button>
-                <button type="button" onclick="this.closest('dialog').close()">Close</button>
+                <button id = "submit" type="submit">Submit</button>
+                <button type="button" onclick="this.closest('dialog').close()">Cancel</button>
             </form>
         </div>
 
