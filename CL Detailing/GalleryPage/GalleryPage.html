@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery – C&L Pro Detailing</title>
+
+  
+     <link rel="icon" type="image/x-icon" href="../Global Styles/Cl Logo.png">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.min.js"></script>
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="../Global Styles/GlobalStyle.css">
+
+   
+    <link rel="stylesheet" href="GalleryPage.css">
+
+    <script>
+        
+        const slideshowImages = [
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
+            "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d",
+            "https://images.unsplash.com/photo-1511919884226-fd3cad34687c"
+        ];
+
+        let slideIndex = 0;
+
+        function startSlideshow() {
+            const slideshow = document.querySelector(".slideshow");
+
+            
+            slideshowImages.forEach((src, i) => {
+                const img = document.createElement("img");
+                img.src = src;
+                if (i === 0) img.classList.add("active");
+                slideshow.appendChild(img);
+            });
+
+            const imgs = slideshow.querySelectorAll("img");
+
+            setInterval(() => {
+                imgs[slideIndex].classList.remove("active");
+                slideIndex = (slideIndex + 1) % imgs.length;
+                imgs[slideIndex].classList.add("active");
+            }, 3500);
+        }
+
+        window.onload = startSlideshow;
+    </script>
+</head>
+
+<body>
+
+    <!-- Banner -->
+    <div id="banner">
+        <a class="banner-logo" href="../MainPage/CL Main Page.html" aria-label="Go to main page">
+            <img src="../Global Styles/CL Logo.png" alt="C&L Pro Detailing logo">
+            <span>C&L Pro Detailing</span>
+        </a>
+
+        <div class="nav">
+            <a href="../ServicesPage/Services.html">Services</a>
+            <a href="../WhyUspage/WhyUs.html">Why us</a>
+            <a href="../GalleryPage/GalleryPage.html">Gallery</a>
+            <a href="../ContactPage/ContactPage.html">Contact</a>
+        </div>
+    </div>
+
+    <!-- ---------- SLIDESHOW ---------- -->
+    <div class="slideshow"></div>
+
+    <!-- Title -->
+    <div class="gallery-title">OUR WORK</div>
+
+    <!-- ---------- GALLERY ---------- -->
+    <div class="gallery-container">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH0fns_o6hQosDjg0jNSNDQxpMQtC2w-X68w&s">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/ferrari-e-suv-2-copy-680287cac36b2.jpg?crop=1.00xw:0.838xh;0,0.0673xh">
+        <img src="https://hips.hearstapps.com/hmg-prod/images/23cc1afc-c03c-4f77-868f-f44144d4167c.jpg?w=768&width=768&q=75&format=webp">
+
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
+        <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
+        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c">
+
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div class="logo">© 2026 C&L AUTO DETAILING. ALL RIGHTS RESERVED.</div>
+
+        <div class="footNav">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Google Business</a>
+        </div>
+    </div>
+
+</body>
+</html>

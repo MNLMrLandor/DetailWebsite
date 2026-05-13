@@ -28,6 +28,34 @@
     text-decoration: underline;
     font-size: 22px;
 }
+
+/* ---------- Banner clickable logo (top-left) ---------- */
+.banner-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 1;
+    height: 100%;
+}
+
+.banner-logo img {
+    height: 70px; /* fit banner height */
+    width: auto;
+    display: block;
+}
+
+.banner-logo:hover,
+.banner-logo:active,
+.banner-logo:focus {
+    text-decoration: none; /* no underline while clicking/hovering */
+    color: white;
+}
+
 .fade-slideshow {
     position: relative;
     width: 100%;

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C&L: Why Us</title>
-
+    <link rel="icon" type="image/x-icon" href="../Global Styles/Cl Logo.png">
     <link rel="stylesheet" href="WhyUs.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="../Global Styles/GlobalStyle.css">
@@ -15,13 +15,16 @@
 
 <body>
     <div id="banner">
-        <div class="logo">C&L Pro Detailing</div>
+        <a class="banner-logo" href="../MainPage/CL Main Page.html" aria-label="Go to main page">
+            <img src="../Global Styles/CL Logo.png" alt="C&L Pro Detailing logo">
+            <span>C&L Pro Detailing</span>
+        </a>
 
         <div class="nav">
             <a href="../ServicesPage/Services.html">Services</a>
             <a href="../WhyUspage/WhyUs.html">Why us</a>
-            <a href="../GalleryPage/Gallery.html">Gallery</a>
-            <a href="../ContactPage/Contact.html">Contact</a>
+            <a href="../GalleryPage/GalleryPage.html">Gallery</a>
+            <a href="../ContactPage/ContactPage.html">Contact</a>
         </div>
     </div>
 
@@ -56,7 +59,6 @@
         <button id="book-now-button">Book Now</button>
     </fieldset>
 
-   
     <dialog id="bookingPopup" style="width: 500px; height: 550px;">
         <button onclick="this.closest('dialog').close()" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; cursor: pointer; color: white;">✕</button>
 
@@ -120,7 +122,6 @@
     </div>
 
     <script>
-
         let index = 0;
 
         const form = document.getElementById("bookingForm");
@@ -143,6 +144,7 @@
             dateInput.value = new Date().toISOString().split("T")[0];
             timeInput.value = "10:00";
         }
+
 
         function validatePhoneNumber() {
             const phone = phoneInput.value;

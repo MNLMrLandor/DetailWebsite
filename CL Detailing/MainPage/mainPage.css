@@ -92,4 +92,29 @@ h1 {
     letter-spacing: 1px; /* optional but matches the style */
 }
 
+/* ---------- SLIDESHOW (same as GalleryPage) ---------- */
+.slideshow {
+    width: 100%;
+    height: 55vh;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 2px solid gold;
+}
 
+.slideshow img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+}
+
+.slideshow img.active {
+    opacity: 1;
+}
+
+/* ---------- OPTIONAL: page background match ---------- */
+body {
+    background-color: black; /* matches your global theme */
+}
