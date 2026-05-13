@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Gallery – C&L Pro Detailing</title>
 
-  
-     <link rel="icon" type="image/x-icon" href="../Global Styles/Cl Logo.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../Global Styles/CL Logo.png">
+
+    <!-- jQuery + jQuery UI -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.min.js"></script>
 
-   
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    
+    <!-- Global + Page CSS -->
     <link rel="stylesheet" href="../Global Styles/GlobalStyle.css">
-
-   
     <link rel="stylesheet" href="GalleryPage.css">
 
     <script>
-        
         const slideshowImages = [
             "https://images.unsplash.com/photo-1503376780353-7e6692767b70",
             "https://images.unsplash.com/photo-1503736334956-4c8f8e92946d",
@@ -31,7 +31,6 @@
         function startSlideshow() {
             const slideshow = document.querySelector(".slideshow");
 
-            
             slideshowImages.forEach((src, i) => {
                 const img = document.createElement("img");
                 img.src = src;
@@ -69,15 +68,14 @@
         </div>
     </div>
 
-    <!-- ---------- SLIDESHOW ---------- -->
+    <!-- Slideshow -->
     <div class="slideshow"></div>
 
     <!-- Title -->
     <div class="gallery-title">OUR WORK</div>
 
-    <!-- ---------- GALLERY ---------- -->
+    <!-- Gallery -->
     <div class="gallery-container">
-
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH0fns_o6hQosDjg0jNSNDQxpMQtC2w-X68w&s">
         <img src="https://hips.hearstapps.com/hmg-prod/images/ferrari-e-suv-2-copy-680287cac36b2.jpg?crop=1.00xw:0.838xh;0,0.0673xh">
         <img src="https://hips.hearstapps.com/hmg-prod/images/23cc1afc-c03c-4f77-868f-f44144d4167c.jpg?w=768&width=768&q=75&format=webp">
@@ -85,10 +83,15 @@
         <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70">
         <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d">
         <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c">
-
     </div>
 
     <!-- Footer -->
+    <fieldset id="bookingFooter">
+        <h1>Ready to Experience the Difference?</h1>
+        <p>Book your session today and let us show you the very thing you've been missing.</p>
+        <button id="book-now-button">Book Now</button>
+    </fieldset>
+
     <div id="footer">
         <div class="logo">© 2026 C&L AUTO DETAILING. ALL RIGHTS RESERVED.</div>
 
@@ -99,5 +102,171 @@
         </div>
     </div>
 
+
+    <!-- Booking Popup -->
+    <dialog id="bookingPopup" style="width: 500px; height: 550px;">
+        <button onclick="this.closest('dialog').close()" 
+                style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 24px; cursor: pointer; color: white;">
+            ✕
+        </button>
+
+        <div id="formContainer">
+            <h2 id="debugFillTrigger" style="cursor: pointer;">Book Below!</h2>
+
+            <form id="bookingForm" action="https://api.sheetmonkey.io/form/fM6HaKnB7tN7oTTmWSCnf6" method="post">
+                
+                <label for="Name">Name:</label>
+                <input type="text" id="Name" name="Name" required>
+
+                <label for="Package">Package:</label>
+                <select name="Package" id="Package" required>
+                    <option value="">--Select your package--</option>
+                    <option value="Basic">Basic</option>
+                    <option value="Elite">Elite</option>
+                    <option value="Premium">Premium</option>
+                </select>
+
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" name="Email" required>
+
+                <label for="Phone">Phone:</label>
+                <input type="tel" id="Phone" name="Phone" placeholder="(123) 456-7890"
+                       pattern="[0-9\-\(\) ]+" required>
+
+                <label for="carModel">Car Model:</label>
+                <input type="text" id="carModel" name="Car Model" required>
+
+                <label for="Date">Preferred Date:</label>
+                <input type="date" id="Date" name="Date" required>
+
+                <label for="Time">Preferred Time:</label>
+                <input type="time" id="Time" name="Time" required>
+
+                <button type="submit">Submit</button>
+                <button type="button" onclick="this.closest('dialog').close()">Close</button>
+            </form>
+        </div>
+
+        <div id="successContainer" style="display: none; text-align: center; padding: 40px 20px;">
+            <h2 style="color: gold;">Booking Submitted!</h2>
+            <p id="priceMessage" style="font-size: 18px; margin-top: 10px; color: white;"></p>
+            <p style="font-size: 18px; margin-top: 20px;">Thank you for booking with C&L Pro Detailing. We'll contact you soon!</p>
+        </div>
+    </dialog>
+
 </body>
+<script>
+    const form = document.getElementById("bookingForm");
+    const phoneInput = document.getElementById("Phone");
+    const packageSelect = document.getElementById("Package");
+    const carModelInput = document.getElementById("carModel");
+    const dateInput = document.getElementById("Date");
+    const timeInput = document.getElementById("Time");
+    const nameInput = document.getElementById("Name");
+    const emailInput = document.getElementById("Email");
+    const myPopup = document.getElementById("bookingPopup");
+    const bookNowButton = document.getElementById("book-now-button");
+
+    function fillDebugFormData() {
+        nameInput.value = "Test User";
+        packageSelect.value = "Premium";
+        emailInput.value = "test@example.com";
+        phoneInput.value = "(555) 123-4567";
+        carModelInput.value = "2020 Toyota Camry";
+        dateInput.value = new Date().toISOString().split("T")[0];
+        timeInput.value = "10:00";
+    }
+
+    function validatePhoneNumber() {
+        const phone = phoneInput.value;
+        const digitsOnly = phone.replace(/\D/g, "");
+
+        if (digitsOnly.length < 10) {
+            phoneInput.style.borderColor = "red";
+            phoneInput.style.backgroundColor = "#ffcccc";
+            return false;
+        } else {
+            phoneInput.style.borderColor = "";
+            phoneInput.style.backgroundColor = "";
+            return true;
+        }
+    }
+
+    $(function () {
+        $("#accordion").accordion({
+            collapsible: true,
+            active: false
+        });
+
+        $("#book-now-button").button({
+            icons: { primary: "ui-icon-calendar" }
+        });
+
+        $("#book-now-button").on("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            document.getElementById("formContainer").style.display = "block";
+            document.getElementById("successContainer").style.display = "none";
+
+            form.reset();
+            myPopup.showModal();
+        });
+
+        $("#debugFillTrigger").on("click", function () {
+            fillDebugFormData();
+        });
+    });
+
+    // Phone number verify
+    phoneInput.addEventListener("blur", function () {
+        validatePhoneNumber();
+    });
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (!validatePhoneNumber()) {
+            alert("Please enter a valid phone number with at least 10 digits.");
+            return;
+        }
+
+        // Calculate and display price using switch
+        const selectedPackage = packageSelect.value;
+        let price;
+
+        switch (selectedPackage) {
+            case "Basic":
+                price = "$100";
+                break;
+            case "Elite":
+                price = "$180";
+                break;
+            case "Premium":
+                price = "$250";
+                break;
+            default:
+                price = "";
+        }
+
+        document.getElementById("priceMessage").textContent = price
+            ? `Your selected package price is: ${price}`
+            : "";
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: "POST",
+            body: formData
+        })
+            .then((response) => (response.ok ? Promise.resolve() : Promise.reject()))
+            .then(() => {
+                document.getElementById("formContainer").style.display = "none";
+                document.getElementById("successContainer").style.display = "block";
+            })
+            .catch(() => {
+                alert("Error submitting booking. Please try again.");
+            });
+    });
+</script>
 </html>
