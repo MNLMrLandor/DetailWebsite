@@ -1,0 +1,74 @@
+#accordion {
+    color: white;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 30px;
+    background-color: rgb(0, 0, 0);
+    border: 0px solid gold;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* Accordion header styling */
+#accordion .ui-accordion-header {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 2px solid gold;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 40px;
+    padding: 10px;
+}
+
+/* Accordion content styling */
+#accordion .ui-accordion-content {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: 2px solid gold;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 18px;
+    padding: 15px;
+}
+#accordion .ui-accordion-content p {
+    color: white;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 20px;
+}
+
+#bookingFooter {
+    background-color: #07111f;
+    color: white;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    text-align: center;
+    margin: 16px auto 20px;
+    padding: 56px 32px;
+    max-width: 1080px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+}
+
+#bookingFooter h1 {
+    font-size: 42px;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+#bookingFooter p {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 20px;
+    max-width: 760px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+}
+bookingFooter button {
+    background-color: gold;
+    color: black;
+    border: none;
+    font-family: Copperplate, 'Courier New', fantasy, serif;
+    font-size: 50px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
