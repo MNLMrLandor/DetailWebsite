@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C&L: Why Us</title>
+    <!-- Add icon to tab, style sheets, and jquery -->
     <link rel="icon" type="image/x-icon" href="../Global Styles/Cl Logo.png">
     <link rel="stylesheet" href="WhyUs.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.2/themes/base/jquery-ui.css">
@@ -14,8 +15,9 @@
 </head>
 
 <body>
+    <!-- Banner -->
     <div id="banner">
-        <a class="banner-logo" href="../MainPage/CL INDEX.html" aria-label="Go to main page">
+        <a class="banner-logo" href="../MainPage/CL Main Page.html" aria-label="Go to main page">
             <img src="../Global Styles/CL Logo.png" alt="C&L Pro Detailing logo">
             <span>C&L Pro Detailing</span>
         </a>
@@ -30,6 +32,7 @@
 
     <h1 id="main-title">Why Choose Us?</h1>
 
+    <!-- Adding Accordion to explain us -->
     <div id="accordion">
         <h3>Deeper Cleaning</h3>
         <div>
@@ -52,7 +55,8 @@
             </p>
         </div>
     </div>
-
+    
+    <!-- Add footer that allows users to book   -->
     <fieldset id="bookingFooter">
         <h1>Ready to Experience the Difference?</h1>
         <p>Book your session today and let us show you the very thing you've been missing.</p>
@@ -104,14 +108,14 @@
                 <button type="button" onclick="this.closest('dialog').close()">Close</button>
             </form>
         </div>
-
+        <!-- Display success message after successfully booking -->
         <div id="successContainer" style="display: none; text-align: center; padding: 40px 20px;">
             <h2 style="color: gold;">Booking Submitted!</h2>
             <p id="priceMessage" style="font-size: 18px; margin-top: 10px; color: white;"></p>
             <p style="font-size: 18px; margin-top: 20px;">Thank you for booking with C&L Pro Detailing. We'll contact you soon!</p>
         </div>
     </dialog>
-
+    <!-- Add footer to bottom of page -->
     <div id="footer">
         <div class="logo">© 2026 C&L AUTO DETAILING. ALL RIGHTS RESERVED.</div>
         <div class="footNav">
@@ -123,7 +127,7 @@
 
     <script>
         let index = 0;
-
+        //Get form elements first -->
         const form = document.getElementById("bookingForm");
         const phoneInput = document.getElementById("Phone");
         const packageSelect = document.getElementById("Package");
@@ -135,6 +139,7 @@
         const myPopup = document.getElementById("bookingPopup");
         const bookNowButton = document.getElementById("book-now-button");
 
+        //Fill in test data for debugging -->
         function fillDebugFormData() {
             nameInput.value = "Test User";
             packageSelect.value = "Premium";
@@ -145,7 +150,7 @@
             timeInput.value = "10:00";
         }
 
-
+        //Validate phone number -->
         function validatePhoneNumber() {
             const phone = phoneInput.value;
             const digitsOnly = phone.replace(/\D/g, "");
@@ -160,15 +165,11 @@
                 return true;
             }
         }
-
+        //Edit jquery UI elements and add click events
         $(function () {
             $("#accordion").accordion({
                 collapsible: true,
-                active: false,
-                icons: {
-                    header: "ui-icon-plus",
-                    activeHeader: "ui-icon-minus"
-                }
+                active: false
             });
 
             $("#book-now-button").button({
@@ -204,7 +205,7 @@
                 return;
             }
 
-            // Calculate and display price using switch
+            // Calculate and display price using switch values
             const selectedPackage = packageSelect.value;
             let price;
 
